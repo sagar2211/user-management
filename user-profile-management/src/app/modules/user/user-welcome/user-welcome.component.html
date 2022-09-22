@@ -1,0 +1,9 @@
+<div class="main-container w-100">
+    <div class="d-flex justify-content-end p-3">
+        <ul>
+            <li>Welcome {{useData.data.name}}</li>
+            <li (click)="logout()">Logout</li>
+        </ul>
+    </div>
+</div>
+<app-toast *ngIf="isToaster" [toasterObj]="toasterObj"></app-toast>

@@ -1,0 +1,17 @@
+.main-container{
+    margin: 0 auto;
+}
+
+/* For Tab View Start */
+@media only screen and (min-width:768px) and (max-width:1024px) {
+    .main-container.w-75 {
+        width: 90% !important;
+    }
+    }
+    
+    /* For Mobile View Start */
+    @media only screen and (max-width:767px) {
+        .main-container.w-75 {
+            width: 90% !important;
+        }
+    }

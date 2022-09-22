@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item" (click)="changeActive('list')">
+                    <a class="nav-link" [ngClass]="{'active': activePage === 'list'}" aria-current="page" href="javascript:void(0)">User List</a>
+                </li>
+                <li class="nav-item" (click)="changeActive('add-user')">
+                    <a class="nav-link" [ngClass]="{'active': activePage === 'add-user'}" href="javascript:void(0)">Add User</a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <ul class="navbar-nav me-2">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="javascript:void(0)">Welcome {{user.data.name}}</a>
+                    </li>
+                    <li class="nav-item"  (click)="logout()">
+                        <a class="nav-link" aria-current="page" href="javascript:void(0)">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="toaster">
+    <app-toast *ngIf="isToaster" [toasterObj]="toasterObj"></app-toast>
+</div>
+<div>
+    <app-list *ngIf="activePage === 'list'"></app-list>
+    <app-register *ngIf="activePage === 'add-user'"></app-register>
+    
+</div>

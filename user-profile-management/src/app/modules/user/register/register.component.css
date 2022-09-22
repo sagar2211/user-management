@@ -1,0 +1,59 @@
+.main-container{
+    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+    border-radius: 0.5rem 0.5rem 0 0;
+    margin: 0 auto;
+    height: 100vh;
+}
+.inner-container{
+    background-color: black;
+    border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+    margin: 0 auto;
+    padding: 30px 10px;
+}
+.heading{
+    color : #fff;
+    text-align: center;
+}
+.sub-heading{
+    color: hsla(0,0%,100%,.5);
+    text-align: center;
+}
+.form-group{
+    margin: 0 30px;
+}
+.input-group select{
+    width: 300px;
+}
+small{
+    color : red !important;
+}
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: transparent;
+    --bs-btn-border-color: #fff;
+}
+.signup-link span,.signup-link a{
+    color: #fff;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+/* For Tab View Start */
+@media only screen and (min-width:768px) and (max-width:1024px) {
+    .main-container.w-50 {
+        width: 100% !important;
+    }
+    .inner-container.w-50{
+        width: 60% !important;
+    }
+    }
+    
+    /* For Mobile View Start */
+    @media only screen and (max-width:767px) {
+        .main-container.w-50 {
+            width: 100% !important;
+        }
+        .inner-container.w-50{
+            width: 90% !important;
+        }
+    }

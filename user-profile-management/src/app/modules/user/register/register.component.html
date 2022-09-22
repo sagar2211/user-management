@@ -1,0 +1,57 @@
+<section class="main-container w-50 my-3 d-flex align-items-center">
+    <div class="inner-container w-50">
+        <h2 class="heading" *ngIf="!editUser">REGISTER</h2>
+        <h2 class="heading" *ngIf="editUser">UPDATE</h2>
+        <p class="sub-heading">Please enter user details!</p>
+        <form class="form-group" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Fullname" formControlName="name"
+                        aria-label="Fullname" aria-describedby="basic-addon1">
+                </div>
+                <small class="form-text text-muted" *ngIf="checkError('name', 'required')">Fullname is required</small>
+            </div>
+            <div class="mb-3">
+                <div class="input-group">
+                    <input type="email" class="form-control" [readonly]="editUser" placeholder="Email" formControlName="email" aria-label="Email"
+                        aria-describedby="basic-addon1">
+                </div>
+                <small class="form-text text-muted" *ngIf="checkError('email', 'required')">Email is required</small>
+                <small class="form-text text-muted" *ngIf="checkError('email', 'pattern')">Email is not valid.</small>
+            </div>
+            <div class="mb-3">
+                <div class="input-group">
+                    <input type="password" class="form-control" [readonly]="editUser" formControlName="password" placeholder="Password"
+                        aria-label="About" aria-describedby="basic-addon1">
+                </div>
+                <small class="form-text text-muted" *ngIf="checkError('password', 'required')">Password is
+                    required</small>
+            </div>
+            <div class="mb-3">
+                <div class="input-group">
+                    <select formControlName="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="transgender">Transgender</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" formControlName="strength" placeholder="Strength"
+                    aria-label="Strength" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" formControlName="about" placeholder="About"
+                    aria-label="About" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3 d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary" *ngIf="!editUser" [disabled]="!userForm.valid">REGISTER</button>
+                <button type="button" class="btn btn-primary" *ngIf="editUser" (click)="updateUser()" [disabled]="!userForm.valid">UPDATE</button>
+            </div>
+        </form>
+        <div class="signup-link text-center">
+            <span>Do you have an account? </span><a href="javascript:void(0)" routerLink="/user/login">Login Here</a>
+        </div>
+    </div>
+</section>
+<app-toast *ngIf="isToaster" [toasterObj]="toasterObj"></app-toast>

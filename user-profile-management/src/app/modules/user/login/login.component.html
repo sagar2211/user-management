@@ -1,0 +1,39 @@
+<section class="main-container w-50 mt-5 d-flex align-items-center">
+        <div class="inner-container w-50 my-3">
+            <h2 class="heading pt-5">LOGIN</h2>
+            <!-- <h2>{{user?.getBasicProfile()?.getName()}}</h2> -->
+            <p class="sub-heading">Please enter your login and password!</p>
+            <form class="form-group" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Email" formControlName="email" aria-label="Email"
+                            aria-describedby="basic-addon1">
+                    </div>
+                    <small class="form-text text-muted" *ngIf="checkError('email', 'required')">Email is required</small>
+                    <small class="form-text text-muted" *ngIf="checkError('email', 'pattern')">Email is not valid.</small>
+                </div>
+                <div class="mb-3">
+                    <div class="input-group">
+                        <input type="password" class="form-control" placeholder="Password" formControlName="password" aria-label="Password"
+                        aria-describedby="basic-addon1">
+                    </div>
+                    <small class="form-text text-muted" *ngIf="checkError('password', 'required')">Password is
+                        required</small>
+                </div>
+                <div class="input-group mb-3 d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">LOGIN</button>
+                </div>
+            </form>
+            <hr>
+            <div class="d-flex justify-content-center social-media p-2">
+                <div class="d-flex justify-content-between w-25">
+                    <span (click)="signIn()"><fa-icon [icon]="faGoogle"></fa-icon></span>
+                    <span><fa-icon [icon]="faFacebook"></fa-icon></span>
+                </div>
+            </div>
+            <div class="signup-link text-center p-2">
+                <span>Don't have an account? </span><a href="javascript:void(0)" routerLink="/user/register">Sign Up</a>
+            </div>
+        </div>
+</section>
+<app-toast *ngIf="isToaster" [toasterObj]="toasterObj"></app-toast>
